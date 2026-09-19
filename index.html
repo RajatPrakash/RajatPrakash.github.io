@@ -80,9 +80,9 @@
   .showcase{padding:44px 0 20px}
   .showcase .cap{font-family:var(--ff-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin-bottom:16px;text-align:center}
   .slider{position:relative;border:1px solid var(--panel-line);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));overflow:hidden;box-shadow:0 40px 90px -50px rgba(0,0,0,.9)}
-  .slides{position:relative;min-height:300px;transition:height .5s ease}
-  .slide{position:absolute;top:0;left:0;right:0;display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:center;padding:44px 46px 62px;opacity:0;transform:translateX(28px) scale(.99);transition:opacity .7s ease, transform .7s ease;pointer-events:none}
-  .slide.active{opacity:1;transform:none;pointer-events:auto}
+  .slides{position:relative;min-height:300px;transition:height .5s ease;perspective:1600px}
+  .slide{position:absolute;top:0;left:0;right:0;display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:center;padding:44px 46px 62px;opacity:0;transform:rotateY(18deg) translateX(8%);transform-origin:left center;backface-visibility:hidden;transition:opacity .7s ease, transform .9s cubic-bezier(.22,.61,.36,1);pointer-events:none}
+  .slide.active{opacity:1;transform:rotateY(0deg) translateX(0);pointer-events:auto}
   .slide .txt .se{font-family:var(--ff-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
   .slide .txt h2{font-family:var(--ff-display);font-weight:800;font-size:clamp(30px,4.6vw,50px);line-height:1;letter-spacing:-.02em;margin:14px 0 14px;text-wrap:balance}
   .slide .txt p{color:var(--muted);font-size:16px;max-width:34ch;margin:0}
@@ -154,8 +154,6 @@
 
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
-    *{animation:none!important}
-    .slide{transition:opacity .2s ease}
   }
 </style>
 </head>
@@ -411,7 +409,7 @@
   var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
   var dotsWrap = document.getElementById('dots');
   var slider = document.getElementById('slider');
-  var idx = 0, timer = null, DELAY = 2800;
+  var idx = 0, timer = null, DELAY = 3000;
   slides.forEach(function(_, i){
     var b = document.createElement('button');
     b.className = 'dot' + (i===0?' on':'');
