@@ -439,7 +439,7 @@
   setHeight();
   function next(){ go(idx+1); }
   function prev(){ go(idx-1); }
-  function start(){ if(reduce) return; timer = setInterval(next, DELAY); }
+  function start(){ if(timer) return; timer = setInterval(next, DELAY); }
   function stop(){ if(timer){ clearInterval(timer); timer=null; } }
   function restart(){ stop(); start(); }
   document.getElementById('next').addEventListener('click', function(){ next(); restart(); });
