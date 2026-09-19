@@ -79,9 +79,9 @@
   /* SLIDESHOW */
   .showcase{padding:44px 0 20px}
   .showcase .cap{font-family:var(--ff-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin-bottom:16px;text-align:center}
-  .slider{position:relative;border:1px solid var(--panel-line);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));overflow:hidden;min-height:340px;box-shadow:0 40px 90px -50px rgba(0,0,0,.9)}
-  .slides{position:relative;min-height:340px}
-  .slide{position:absolute;inset:0;display:grid;grid-template-columns:1.15fr .85fr;gap:8px;align-items:center;padding:44px 46px;opacity:0;transform:translateX(28px) scale(.99);transition:opacity .7s ease, transform .7s ease;pointer-events:none}
+  .slider{position:relative;border:1px solid var(--panel-line);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));overflow:hidden;box-shadow:0 40px 90px -50px rgba(0,0,0,.9)}
+  .slides{position:relative;min-height:300px;transition:height .5s ease}
+  .slide{position:absolute;top:0;left:0;right:0;display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:center;padding:44px 46px 62px;opacity:0;transform:translateX(28px) scale(.99);transition:opacity .7s ease, transform .7s ease;pointer-events:none}
   .slide.active{opacity:1;transform:none;pointer-events:auto}
   .slide .txt .se{font-family:var(--ff-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
   .slide .txt h2{font-family:var(--ff-display);font-weight:800;font-size:clamp(30px,4.6vw,50px);line-height:1;letter-spacing:-.02em;margin:14px 0 14px;text-wrap:balance}
@@ -89,10 +89,9 @@
   .slide .art{display:grid;place-items:center}
   .slide .art svg{width:150px;height:150px}
   @media (max-width:680px){
-    .slide{grid-template-columns:1fr;padding:30px 26px;gap:18px}
+    .slide{grid-template-columns:1fr;padding:28px 22px 58px;gap:14px}
     .slide .art{order:-1;justify-items:start}
-    .slide .art svg{width:88px;height:88px}
-    .slider,.slides{min-height:420px}
+    .slide .art svg{width:74px;height:74px}
   }
   .sctl{position:absolute;bottom:18px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:10px;z-index:3}
   .dot{width:9px;height:9px;border-radius:999px;background:rgba(255,255,255,.22);border:0;padding:0;cursor:pointer;transition:width .3s ease, background .3s ease}
@@ -145,9 +144,9 @@
   .crow:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.28)}
   .crow .ci{width:42px;height:42px;border-radius:11px;background:var(--grad);display:grid;place-items:center;color:#1a0033;flex:none}
   .crow .ci svg{width:20px;height:20px}
-  .crow .cv{display:flex;flex-direction:column}
+  .crow .cv{display:flex;flex-direction:column;min-width:0}
   .crow .cv .cl{font-size:12px;color:var(--muted2);font-family:var(--ff-mono);letter-spacing:.06em}
-  .crow .cv .cd{font-size:16px;font-weight:600}
+  .crow .cv .cd{font-size:16px;font-weight:600;overflow-wrap:anywhere}
   .crow .go{margin-left:auto;color:var(--muted);font-size:18px}
 
   footer{padding:40px 0 60px;text-align:center;color:var(--muted2);font-size:13px}
@@ -235,7 +234,7 @@
           <article class="slide">
             <div class="txt">
               <div class="se">Natural Language</div>
-              <h2>Sentiment, decoded.</h2>
+              <h2>Sentimental Analysis</h2>
               <p>Automated sentiment analysis that turns thousands of reviews and messages into clear signal.</p>
             </div>
             <div class="art" aria-hidden="true">
@@ -343,11 +342,6 @@
             <span class="cv"><span class="cl">EMAIL</span><span class="cd">rajatprakash904@gmail.com</span></span>
             <span class="go">→</span>
           </a>
-          <a class="crow" href="tel:+918920416458">
-            <span class="ci"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h3l2 5-2 1a12 12 0 0 0 5 5l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
-            <span class="cv"><span class="cl">PHONE</span><span class="cd">+91 89204 16458</span></span>
-            <span class="go">→</span>
-          </a>
           <a class="crow" href="https://www.linkedin.com/in/rajat-pratap-b43908388/" target="_blank" rel="noopener" id="linkedin">
             <span class="ci"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 6.5A1.94 1.94 0 1 1 5 4.56 1.94 1.94 0 0 1 6.94 6.5ZM5.3 8.2h3.3V20H5.3ZM10.6 8.2h3.16v1.6h.05a3.47 3.47 0 0 1 3.12-1.71c3.34 0 3.96 2.2 3.96 5.06V20h-3.3v-5.2c0-1.24 0-2.84-1.73-2.84s-2 1.35-2 2.75V20h-3.3Z"/></svg></span>
             <span class="cv"><span class="cl">LINKEDIN</span><span class="cd">Connect with me</span></span>
@@ -358,10 +352,6 @@
             <span class="cv"><span class="cl">GITHUB</span><span class="cd">github.com/RajatPrakash</span></span>
             <span class="go">→</span>
           </a>
-          <div class="crow" style="cursor:default">
-            <span class="ci"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="2"/></svg></span>
-            <span class="cv"><span class="cl">LOCATION</span><span class="cd">Ghaziabad, India · Remote worldwide</span></span>
-          </div>
         </div>
       </div>
     </section>
@@ -400,7 +390,6 @@
       });
     }
   }
-
   function draw(t){
     ctx.clearRect(0,0,w,h);
     for(var i=0;i<stars.length;i++){
@@ -431,11 +420,23 @@
     dotsWrap.appendChild(b);
   });
   var dots = Array.prototype.slice.call(dotsWrap.children);
+  var slidesEl = document.getElementById('slides');
+  function setHeight(){
+    var active = slides[idx];
+    if(active){ slidesEl.style.height = active.offsetHeight + 'px'; }
+  }
   function go(n){
     idx = (n + slides.length) % slides.length;
     slides.forEach(function(s,i){ s.classList.toggle('active', i===idx); });
     dots.forEach(function(d,i){ d.classList.toggle('on', i===idx); });
+    setHeight();
   }
+  window.addEventListener('resize', setHeight);
+  window.addEventListener('orientationchange', setHeight);
+  window.addEventListener('load', setHeight);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(setHeight); }
+  setTimeout(setHeight, 250);
+  setHeight();
   function next(){ go(idx+1); }
   function prev(){ go(idx-1); }
   function start(){ if(reduce) return; timer = setInterval(next, DELAY); }
