@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio Template Previews</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b0e14; --panel:#12161f; --line:#232a38; --muted:#8b96a8; --fg:#e7ecf3; --brand:#5b8cff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:#0b0e14;
+    color:var(--fg);
+    font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    line-height:1.5;
+    padding:0 16px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding-block:40px 80px}
+  .page-head{margin-bottom:8px}
+  .page-head h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,5vw,44px);line-height:1.05;margin:0 0 12px;letter-spacing:-.02em;text-wrap:balance}
+  .page-head p{color:var(--muted);max-width:60ch;margin:0;font-size:15px}
+  .page-head .hint{margin-top:14px;display:inline-block;font-size:13px;color:var(--brand);border:1px solid #24314f;background:#111a2e;padding:8px 14px;border-radius:999px}
+
+  .tpl{margin-top:44px}
+  .tpl-label{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+  .tpl-num{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:15px;color:var(--ink);background:var(--brand);width:34px;height:34px;display:grid;place-items:center;border-radius:9px;flex:none}
+  .tpl-name{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em}
+  .tpl-desc{color:var(--muted);font-size:14px;flex:1;min-width:220px}
+
+  /* browser frame */
+  .frame{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#000;box-shadow:0 24px 60px -30px rgba(0,0,0,.8)}
+  .bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:#0f131b;border-bottom:1px solid var(--line)}
+  .dot{width:11px;height:11px;border-radius:50%}
+  .d1{background:#ff5f57}.d2{background:#febc2e}.d3{background:#28c840}
+  .bar .url{margin-left:10px;font-family:"JetBrains Mono",monospace;font-size:11px;color:#5a6478}
+  .screen{padding:0}
+
+  /* ============ 1. DATA DASHBOARD ============ */
+  .t-dash{background:#0a0f1a;color:#dfe6f2;font-family:"Sora",sans-serif;padding:26px 26px 30px}
+  .t-dash .top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+  .t-dash h2{font-size:26px;margin:0;font-weight:800;letter-spacing:-.02em}
+  .t-dash .role{color:#7fd1c4;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-top:4px}
+  .t-dash .avail{font-size:12px;color:#8ff0b4;border:1px solid #1d4536;background:#0e241c;padding:6px 11px;border-radius:8px;display:inline-flex;gap:7px;align-items:center}
+  .t-dash .avail::before{content:"";width:7px;height:7px;border-radius:50%;background:#3ee27f;box-shadow:0 0 0 3px rgba(62,226,127,.18)}
+  .t-dash .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+  .t-dash .tile{background:#101724;border:1px solid #1c2740;border-radius:12px;padding:14px}
+  .t-dash .tile .k{font-size:26px;font-weight:800;letter-spacing:-.02em}
+  .t-dash .tile .l{font-size:11px;color:#7d8aa3;margin-top:3px}
+  .t-dash .tile.acc .k{color:#7fb0ff}
+  .t-dash .row2{display:grid;grid-template-columns:1.6fr 1fr;gap:12px;margin-top:12px}
+  .t-dash .card{background:#101724;border:1px solid #1c2740;border-radius:12px;padding:16px}
+  .t-dash .card h3{margin:0 0 12px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#7d8aa3;font-weight:600}
+  .t-dash .chart{display:flex;align-items:flex-end;gap:8px;height:78px}
+  .t-dash .chart span{flex:1;background:linear-gradient(180deg,#5b8cff,#2b4a99);border-radius:5px 5px 0 0;opacity:.9}
+  .t-dash .proj{display:flex;flex-direction:column;gap:9px}
+  .t-dash .proj .p{display:flex;justify-content:space-between;font-size:12.5px;padding-bottom:8px;border-bottom:1px solid #1a2338}
+  .t-dash .proj .p:last-child{border:0}
+  .t-dash .proj .p b{font-weight:600}
+  .t-dash .proj .p em{color:#6dd6c0;font-style:normal;font-family:"JetBrains Mono",monospace;font-size:11px}
+
+  /* ============ 2. GLASS DARK ============ */
+  .t-glass{position:relative;font-family:"Space Grotesk",sans-serif;color:#eef1f8;padding:34px 28px 38px;background:#0a0a12;overflow:hidden}
+  .t-glass::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 15% 0%,rgba(124,92,255,.45),transparent 60%),radial-gradient(500px 320px at 95% 30%,rgba(45,212,191,.35),transparent 55%);}
+  .t-glass>*{position:relative}
+  .t-glass .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#b9a9ff}
+  .t-glass h2{font-size:34px;line-height:1.02;margin:10px 0 12px;font-weight:700;letter-spacing:-.02em;max-width:16ch}
+  .t-glass h2 span{background:linear-gradient(90deg,#a78bfa,#5eead4);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .t-glass p{color:#c3c8d6;max-width:52ch;margin:0;font-size:14.5px}
+  .t-glass .cta{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+  .t-glass .btn{font-size:13px;font-weight:600;padding:11px 18px;border-radius:11px;border:1px solid rgba(255,255,255,.14)}
+  .t-glass .btn.pri{background:linear-gradient(90deg,#7c5cff,#5eead4);color:#0a0a12;border:0}
+  .t-glass .glassrow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+  .t-glass .g{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(12px);border-radius:14px;padding:16px}
+  .t-glass .g .t{font-weight:600;font-size:14px;margin-bottom:5px}
+  .t-glass .g .d{font-size:12px;color:#aab0c2;line-height:1.45}
+
+  /* ============ 3. LIGHT MINIMAL ============ */
+  .t-light{background:#faf9f6;color:#1a1a1a;font-family:"Inter",sans-serif;padding:38px 34px 40px}
+  .t-light .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#9a8f7d}
+  .t-light h2{font-family:"Fraunces",serif;font-weight:600;font-size:38px;line-height:1.04;margin:12px 0 14px;letter-spacing:-.01em;max-width:15ch}
+  .t-light p{color:#5c5c5c;max-width:54ch;font-size:15px;margin:0}
+  .t-light .meta{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap;border-top:1px solid #e6e2d9;padding-top:22px}
+  .t-light .meta .m .k{font-family:"Fraunces",serif;font-size:24px;font-weight:600}
+  .t-light .meta .m .l{font-size:12px;color:#8a8a8a;margin-top:2px}
+  .t-light .work{margin-top:26px;display:flex;flex-direction:column}
+  .t-light .work .w{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 0;border-top:1px solid #e6e2d9}
+  .t-light .work .w:hover{padding-left:6px}
+  .t-light .work .w b{font-weight:600;font-size:15px}
+  .t-light .work .w .tag{font-size:11px;color:#8a8a8a}
+  .t-light .work .w .arr{color:#c0392b;font-size:16px}
+
+  /* ============ 4. BOLD GRADIENT ============ */
+  .t-bold{background:#120024;color:#fff;font-family:"Sora",sans-serif;padding:0;overflow:hidden}
+  .t-bold .hero{background:linear-gradient(135deg,#ff2e88 0%,#ff6a3d 40%,#ffd166 100%);padding:40px 30px 44px;color:#1a0033}
+  .t-bold .hero .tag{font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+  .t-bold .hero h2{font-size:clamp(30px,7vw,52px);font-weight:800;line-height:.98;margin:10px 0 14px;letter-spacing:-.03em;max-width:14ch}
+  .t-bold .hero p{font-weight:500;max-width:46ch;margin:0;font-size:15px}
+  .t-bold .hero .b{display:inline-block;margin-top:20px;background:#120024;color:#fff;font-weight:700;font-size:14px;padding:13px 22px;border-radius:999px}
+  .t-bold .strip{display:flex;gap:26px;padding:22px 30px;flex-wrap:wrap;background:#120024}
+  .t-bold .strip .s b{display:block;font-size:24px;font-weight:800;background:linear-gradient(90deg,#ff2e88,#ffd166);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .t-bold .strip .s span{font-size:12px;color:#b39ccf}
+
+  /* ============ 5. TERMINAL ============ */
+  .t-term{background:#0c0f0d;color:#c8f7d4;font-family:"JetBrains Mono",monospace;padding:26px 26px 30px;font-size:13px}
+  .t-term .line{white-space:pre-wrap;line-height:1.75}
+  .t-term .pr{color:#3ee27f}
+  .t-term .cm{color:#5a6478}
+  .t-term .st{color:#e7ecf3}
+  .t-term .hl{color:#7fd1ff}
+  .t-term .warn{color:#ffd166}
+  .t-term h2{font-family:"JetBrains Mono",monospace;color:#eafff0;font-size:22px;margin:6px 0 2px;font-weight:700}
+  .t-term .card{border:1px solid #1c3a29;border-radius:8px;padding:14px 16px;margin-top:16px;background:#0f150f}
+  .t-term .card .row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #1c3a29}
+  .t-term .card .row:last-child{border:0}
+  .t-term .card .row span:last-child{color:#7fd1ff}
+  .t-term .cursor{display:inline-block;width:8px;height:15px;background:#3ee27f;vertical-align:middle;animation:blink 1.1s steps(2) infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  @media (max-width:640px){
+    .t-dash .tiles{grid-template-columns:repeat(2,1fr)}
+    .t-dash .row2{grid-template-columns:1fr}
+    .t-glass .glassrow{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="page-head">
+    <h1>Pick your template, Rajat</h1>
+    <p>Five directions for your portfolio site — each shown with your real content so you can judge the feel, not a placeholder. Every one includes a contact page. Reply with the number you want and I'll build the full site.</p>
+    <span class="hint">Tip: reply "1", "3", or "mix 1 + 5" — I can blend two if you like elements of each.</span>
+  </div>
+
+  <!-- 1 -->
+  <section class="tpl">
+    <div class="tpl-label">
+      <span class="tpl-num">1</span>
+      <span class="tpl-name">Data Dashboard</span>
+      <span class="tpl-desc">The site looks like a BI dashboard — metric tiles, a chart, project panels. Instantly says "data engineer." Easiest to scan. My top pick for you.</span>
+    </div>
+    <div class="frame">
+      <div class="bar"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><span class="url">rajatprakash.dev</span></div>
+      <div class="screen t-dash">
+        <div class="top">
+          <div>
+            <h2>Rajat Prakash</h2>
+            <div class="role">Senior Data Engineer · Automation · BI</div>
+          </div>
+          <span class="avail">Available for freelance work</span>
+        </div>
+        <div class="tiles">
+          <div class="tile acc"><div class="k">8+</div><div class="l">Years experience</div></div>
+          <div class="tile"><div class="k">20+</div><div class="l">Pipelines &amp; automations</div></div>
+          <div class="tile"><div class="k">6</div><div class="l">Live cron jobs (OSP)</div></div>
+          <div class="tile"><div class="k">3</div><div class="l">Domains: e-com · finance · IT</div></div>
+        </div>
+        <div class="row2">
+          <div class="card">
+            <h3>Automation throughput (records/day)</h3>
+            <div class="chart"><span style="height:40%"></span><span style="height:58%"></span><span style="height:47%"></span><span style="height:72%"></span><span style="height:64%"></span><span style="height:88%"></span><span style="height:80%"></span><span style="height:100%"></span></div>
+          </div>
+          <div class="card">
+            <h3>Featured work</h3>
+            <div class="proj">
+              <div class="p"><b>OSP VPS Automation</b><em>PostgreSQL</em></div>
+              <div class="p"><b>Garrett SFTP Feed</b><em>SP-API</em></div>
+              <div class="p"><b>Brand Perf. Dashboard</b><em>Power BI</em></div>
+              <div class="p"><b>Browse-Node Monitor</b><em>Python</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="tpl">
+    <div class="tpl-label">
+      <span class="tpl-num">2</span>
+      <span class="tpl-name">Glassmorphism Dark</span>
+      <span class="tpl-desc">Dark background with glowing gradients and frosted-glass cards. Sleek, high-tech, very 2026. Feels premium and modern.</span>
+    </div>
+    <div class="frame">
+      <div class="bar"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><span class="url">rajatprakash.dev</span></div>
+      <div class="screen t-glass">
+        <div class="eyebrow">Senior Data Engineer · Full-Stack Developer</div>
+        <h2>I turn messy operational data into <span>decisions you can ship</span>.</h2>
+        <p>8+ years building data pipelines, end-to-end automations, and dashboards for e-commerce, finance, and IT teams.</p>
+        <div class="cta"><span class="btn pri">Hire me</span><span class="btn">View projects</span></div>
+        <div class="glassrow">
+          <div class="g"><div class="t">Data Pipelines &amp; ETL</div><div class="d">SP-API, SFTP feeds, PostgreSQL, scheduled cron workflows.</div></div>
+          <div class="g"><div class="t">Automation &amp; Agents</div><div class="d">Python bots, Streamlit conversational tools, monitoring.</div></div>
+          <div class="g"><div class="t">BI Dashboards</div><div class="d">Power BI, Tableau, Spotfire — from raw data to insight.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="tpl">
+    <div class="tpl-label">
+      <span class="tpl-num">3</span>
+      <span class="tpl-name">Light &amp; Minimal</span>
+      <span class="tpl-desc">White, spacious, elegant serif headings. Calm and trustworthy — reads like a premium independent consultant.</span>
+    </div>
+    <div class="frame">
+      <div class="bar"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><span class="url">rajatprakash.dev</span></div>
+      <div class="screen t-light">
+        <div class="kicker">Rajat Prakash — Ghaziabad, India</div>
+        <h2>Data engineering &amp; automation, done end to end.</h2>
+        <p>I help teams stop firefighting spreadsheets and start trusting their numbers. 8+ years across e-commerce, finance, and software.</p>
+        <div class="meta">
+          <div class="m"><div class="k">8+ yrs</div><div class="l">Experience</div></div>
+          <div class="m"><div class="k">Python · SQL</div><div class="l">Core stack</div></div>
+          <div class="m"><div class="k">BI + ML</div><div class="l">Specialties</div></div>
+        </div>
+        <div class="work">
+          <div class="w"><b>OSP VPS Automation Suite</b><span class="tag">Python · PostgreSQL · Streamlit</span><span class="arr">→</span></div>
+          <div class="w"><b>Garrett Partner Data Feed</b><span class="tag">SP-API · SFTP</span><span class="arr">→</span></div>
+          <div class="w"><b>Brand Performance Dashboard</b><span class="tag">Power BI</span><span class="arr">→</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="tpl">
+    <div class="tpl-label">
+      <span class="tpl-num">4</span>
+      <span class="tpl-name">Bold Gradient</span>
+      <span class="tpl-desc">Vivid gradient hero, huge type, high energy. Stands out hardest and is memorable — creative-agency confidence.</span>
+    </div>
+    <div class="frame">
+      <div class="bar"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><span class="url">rajatprakash.dev</span></div>
+      <div class="screen t-bold">
+        <div class="hero">
+          <div class="tag">Data Engineer · Automation Specialist</div>
+          <h2>Pipelines that just work.</h2>
+          <p>I design data systems and automations that run themselves — so your team ships instead of babysitting scripts.</p>
+          <span class="b">Let's talk →</span>
+        </div>
+        <div class="strip">
+          <div class="s"><b>8+</b><span>Years</span></div>
+          <div class="s"><b>20+</b><span>Automations</span></div>
+          <div class="s"><b>SP-API</b><span>Amazon pipelines</span></div>
+          <div class="s"><b>ML</b><span>Forecasting</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="tpl">
+    <div class="tpl-label">
+      <span class="tpl-num">5</span>
+      <span class="tpl-name">Terminal / Developer</span>
+      <span class="tpl-desc">A command-line aesthetic — mono type, green prompt, code-style cards. Unmistakably "serious engineer." Fun and distinctive.</span>
+    </div>
+    <div class="frame">
+      <div class="bar"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><span class="url">~/rajat-prakash — zsh</span></div>
+      <div class="screen t-term">
+        <div class="line"><span class="pr">➜</span> <span class="st">whoami</span></div>
+        <h2>Rajat Prakash</h2>
+        <div class="line cm"># Senior Data Engineer &amp; Full-Stack Developer · 8+ yrs · Ghaziabad, IN</div>
+        <div class="line"><span class="pr">➜</span> <span class="st">cat</span> <span class="hl">skills.json</span></div>
+        <div class="line">{ <span class="hl">"lang"</span>: [<span class="warn">"Python"</span>, <span class="warn">"SQL"</span>], <span class="hl">"bi"</span>: [<span class="warn">"Power BI"</span>, <span class="warn">"Tableau"</span>, <span class="warn">"Spotfire"</span>], <span class="hl">"ml"</span>: <span class="warn">"XGBoost"</span> }</div>
+        <div class="line"><span class="pr">➜</span> <span class="st">ls</span> <span class="hl">./projects</span></div>
+        <div class="card">
+          <div class="row"><span>osp-vps-automation/</span><span>6 cron · Streamlit · PostgreSQL</span></div>
+          <div class="row"><span>garrett-data-feed/</span><span>SP-API → SFTP daily</span></div>
+          <div class="row"><span>brand-performance-dashboard/</span><span>Power BI</span></div>
+          <div class="row"><span>inventory-forecasting/</span><span>ML</span></div>
+        </div>
+        <div class="line" style="margin-top:14px"><span class="pr">➜</span> <span class="st">./contact</span> <span class="cursor"></span></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
